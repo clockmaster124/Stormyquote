@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: gold;
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+        }
+        #quote-box {
+            border: 2px solid gold;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 300px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="quote-box">
+        <p id="quote">Loading...</p>
+        <button onclick="fetchQuote()">New Quote</button>
+    </div>
+
+    <script>
+        // Array of 15 motivational quotes
+        const quotes = [
+            { text: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt" },
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "Act as if what you do makes a difference. It does.", author: "William James" },
+            { text: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+            { text: "Opportunities don't happen. You create them.", author: "Chris Grosser" },
+            { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+            { text: "Difficulties in life are intended to make us better, not bitter.", author: "Dan Reeves" },
+            { text: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
+            { text: "Hardships often prepare ordinary people for an extraordinary destiny.", author: "C.S. Lewis" },
+            { text: "Everything you’ve ever wanted is on the other side of fear.", author: "George Addair" },
+            { text: "Dream big and dare to fail.", author: "Norman Vaughan" },
+            { text: "He who has a why to live can bear almost any how.", author: "Friedrich Nietzsche" }
+        ];
+
+        function fetchQuote() {
+            // Pick a random quote
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+
+            // Display the quote
+            document.getElementById("quote").textContent = `"${randomQuote.text}" — ${randomQuote.author}`;
+        }
+
+        // Load a quote on page load
+        fetchQuote();
+    </script>
+</body>
+</html>
